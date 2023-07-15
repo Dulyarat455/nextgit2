@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div>
-    <h1>1111</h1>
+    <h1>11112222</h1>
    {test[0].ex_sample !== '' && (<h1>11111{test[0].ex_sample}</h1>)}
    </div>
   )
