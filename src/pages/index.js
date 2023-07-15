@@ -10,7 +10,7 @@ export default function Home() {
     
  
      
-      fetch("https://nextgit2.vercel.app//api/test", {
+      fetch("https://nextgit2.vercel.app/api/test", {
           method: "GET"
         })
         .then((res) => res.json())
