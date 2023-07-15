@@ -10,7 +10,7 @@ export default function Home() {
     
  
      
-      fetch("https://nextgit2.vercel.app/api/test", {
+      fetch("/api/test", {
           method: "GET"
         })
         .then((res) => res.json())
@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div>
-    <h1>1111222233</h1>
+    <h1>11112222334455</h1>
    {test[0].ex_sample !== '' && (<h1>11111{test[0].ex_sample}</h1>)}
    </div>
   )
