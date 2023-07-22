@@ -9,7 +9,7 @@ export default function Loginpage() {
         <Navbar/>
        
        
-      <h1>Login5</h1>
+      <h1>Login6</h1>
      
      
   
