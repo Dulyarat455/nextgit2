@@ -1,5 +1,4 @@
 import { MongoClient, ServerApiVersion  } from 'mongodb';
-import dotenv from 'dotenv';
 import { v4 as uuidv4 } from 'uuid';
 import sha256 from 'crypto-js/sha256'
 
