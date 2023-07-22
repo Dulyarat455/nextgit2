@@ -1,69 +1,10 @@
-import React,{useEffect,useState} from "react"
-import { GenerateQRCode } from "../../utils/generateQR";
-import Navbar from "../../component/Navbar";
+// components/Navbar.js
+import Link from 'next/link';
 
-export default function Home() {
-  const [test,setTest] = useState([{"ex_sample": ""
-  }])
-  const [qrCodeData, setQRCodeData] = useState('');
-  const [inputData, setInputData] = useState('');
-
-  
-  useEffect(() => {
-
-    
- 
-     
-      fetch("/api/test", {
-          method: "GET"
-        })
-        .then((res) => res.json())
-        .then((data) => {
-        
-        console.log("data = ",data)
-        setTest(data.ans)
-        });
-
-      
-    
-  
-  }, []);
-
-  console.log("test = ",test)
-  console.log("test[0] = ",test[0].ex_sample)
-
-
-  const handleInputChange = (event) => {
-    setInputData(event.target.value);
-  };
-
-  const handleGenerateQRCode = async () => {
-    const qrCodeDataUrl = await GenerateQRCode(inputData);
-    setQRCodeData(qrCodeDataUrl);
-  };
-
-
-
-
-
+const Navbar = () => {
   return (
-    <div>
-      <Navbar/>
-    <h1>11112222334455</h1>
-   {test[0].ex_sample !== '' && (<h1>11111{test[0].ex_sample}</h1>)}
-
-   {/* <h1>QR Code Generator</h1>
-      <input type="text" value={inputData} onChange={handleInputChange} />
-      <button onClick={handleGenerateQRCode}>Generate QR Code</button>
-      {qrCodeData && (
-        <div>
-          <img src={qrCodeData} alt="QR Code" />
-          <a href={qrCodeData} download="qrcode.png">
-            Download QR Code
-          </a>
-        </div>
-      )} */}
-      {/* <div
+ <div>  
+<div
   class="relative flex w-full flex-nowrap items-center justify-between bg-[#FBFBFB] py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-neutral-600 lg:flex-wrap lg:justify-start lg:py-4"
   data-te-navbar-ref>
   <div class="flex w-full flex-wrap items-center justify-between px-3">
@@ -151,9 +92,9 @@ export default function Home() {
       </div>
     </div>
   </div>
-</div> */}
+</div>
+</div> 
+  );
+};
 
-
-   </div>
-  )
-}
+export default Navbar;
