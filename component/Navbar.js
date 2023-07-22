@@ -5,24 +5,24 @@ const Navbar = () => {
   return (
     <div>
     <div className="bg-green-500 p-4">
-    <ul className="flex items-center">
-      <li className="mr-6">
+    <div className="flex items-center">
+      <div className="mr-6">
         <Link href="/">
           <p className="text-white font-semibold">Home</p>
         </Link>
-      </li>
-      <li className="mr-6">
+      </div>
+      <div className="mr-6">
         <Link href="/login">
           <p className="text-white font-semibold">Login</p>
         </Link>
-      </li>
-      <li className="mr-6">
+      </div>
+      <div className="mr-6">
         <Link href="/register">
           <p className="text-white font-semibold">Register</p>
         </Link>
-      </li>
+      </div>
       {/* Add more navigation links here */}
-    </ul>
+    </div>
   </div>
   </div>
 
