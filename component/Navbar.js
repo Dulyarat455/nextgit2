@@ -3,7 +3,8 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className="bg-green-500 p-4">
+    <div>
+    <div className="bg-green-500 p-4">
     <ul className="flex items-center">
       <li className="mr-6">
         <Link href="/">
@@ -22,7 +23,8 @@ const Navbar = () => {
       </li>
       {/* Add more navigation links here */}
     </ul>
-  </nav>
+  </div>
+  </div>
 
   );
 };
