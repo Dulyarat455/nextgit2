@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from "react"
 import { GenerateQRCode } from "../../utils/generateQR";
-import Navbar from "../../component/Navbar";
+import Navbar from "@/components/Navbar";
 import Link from 'next/link';
 
 export default function Home() {
