@@ -6,14 +6,7 @@ import DropdownInput from "./Dropdown";
 
 const Popedit =  (prop) => {
     const { isOpen, onClose ,itemNumber, itemName, token, tranId} = prop ;
-    if (!isOpen) {
-      return null;
-    }
-    console.log("tranId = ",tranId)
-    const router = useRouter();
     const [selectedDate, setSelectedDate] = useState('');
-    
-    
     const [info, setInfo] = useState({
       tran_id : tranId,
       topic_name: null,
@@ -22,6 +15,14 @@ const Popedit =  (prop) => {
       description: null,
       trans_type: null,
     })
+    const router = useRouter();
+   
+    if (!isOpen) {
+      return null;
+    }
+    console.log("tranId = ",tranId)
+    
+    
 
     const handleDateChange = (e) => {
       setSelectedDate(e.target.value);
@@ -41,7 +42,7 @@ const Popedit =  (prop) => {
     const options = [
       {label: 'default', value: -1},
       { label: 'Expenses', value: 1 },
-      { label: 'Income', value: 0 },
+      { label: 'Income', value: 0 }
       
     ];
 

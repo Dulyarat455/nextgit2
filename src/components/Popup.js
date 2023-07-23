@@ -3,11 +3,12 @@ import { useRouter } from 'next/router';
 
 
 const Popup =  (prop) => {
+    const router = useRouter();
     const { isOpen, onClose ,itemNumber, itemName, token, tranId} = prop ;
     if (!isOpen) {
       return null;
     }
-    const router = useRouter();
+  
     
     const deleteItem = async() => {
      
