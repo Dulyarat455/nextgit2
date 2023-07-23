@@ -14,9 +14,14 @@ const Navbar = () => {
             <p className="text-white font-semibold">Login</p>
           </Link>
         </li>
-        <li>
+        <li className="mr-6">
           <Link href="/register">
             <p className="text-white font-semibold">register</p>
+          </Link>
+        </li>
+        <li className="mr-6">
+          <Link href="/lists">
+            <p className="text-white font-semibold">lists</p>
           </Link>
         </li>
         {/* Add more navigation links here */}
