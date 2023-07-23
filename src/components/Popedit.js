@@ -5,22 +5,30 @@ import { useRouter } from 'next/router';
 import DropdownInput from "./Dropdown";
 
 const Popedit =  (prop) => {
-    const { isOpen, onClose ,itemNumber, itemName, token, tranId} = prop ;
+    let { isOpen, onClose ,itemNumber, itemName, token, tranId} = prop ;
     const [selectedDate, setSelectedDate] = useState('');
-    const [info, setInfo] = useState({
-      tran_id : tranId,
-      topic_name: null,
-      balance: null,
-      date: null,
-      description: null,
-      trans_type: null,
-    })
+   
     const router = useRouter();
+    console.log("tranId = ",typeof(tranId))
+
+    const [info, setInfo] = useState({
+        tran_id : itemName,
+        topic_name: null,
+        balance: null,
+        date: null,
+        description: null,
+        trans_type: null,
+      })
+    console.log(info)
+
+
+   
+    
    
     if (!isOpen) {
       return null;
     }
-    console.log("tranId = ",tranId)
+    
     
     
 
@@ -29,13 +37,14 @@ const Popedit =  (prop) => {
 
       let selectDate
       selectDate = new Date(e.target.value).toISOString().split("T")[0];
-      setInfo({ ...info, ["date"]: selectDate });
+      setInfo({ ...info, ["date"]: selectDate, ["tran_id"]: tranId });
+      
      
     };
 
     const handleDropdownChange = (event) => {
       const selectedValue = event.target.value;
-      setInfo({ ...info, ["trans_type"]: parseInt( selectedValue) });
+      setInfo({ ...info, ["trans_type"]: parseInt( selectedValue), ["tran_id"]: tranId });
       console.log('Selected value:', selectedValue);
     };
 
@@ -49,16 +58,16 @@ const Popedit =  (prop) => {
 
     const changeHandler = (e) => {
       if(e.target.name === "balance")
-          setInfo({ ...info, [e.target.name]: parseFloat (e.target.value) });
+          setInfo({ ...info, [e.target.name]: parseFloat (e.target.value) , ["tran_id"]: tranId });
       else{
-          setInfo({ ...info, [e.target.name]: e.target.value });
+          setInfo({ ...info, [e.target.name]: e.target.value , ["tran_id"]: tranId});
       }
      
     }
 
     const clearInfo = () => {
 
-      setInfo({ ...info, ["topic_name"]: null, ["balance"]: null,["date"]: null,["description"]: null
+      setInfo({ ...info,["tran_id"]: null, ["topic_name"]: null, ["balance"]: null,["date"]: null,["description"]: null
       ,["trans_type"]: null
       
       
@@ -95,6 +104,9 @@ const Popedit =  (prop) => {
 
     }
 
+
+    
+
     console.log(info)
 
     return (
@@ -130,14 +142,14 @@ const Popedit =  (prop) => {
                
                <br/>
                 <button className="mr-2 mt-4 p-2 bg-blue-500 text-white rounded" onClick={async () => {
-                  await clearInfo()
+                  clearInfo()
                   onClose()
                 }}>
                   Cancel
                 </button>
                 
                 <button  type="submit" className=" mt-4 p-2 pl-3 pr-4 bg-blue-500 text-white rounded " onClick={ ()=>{
-          
+               
                   handleSubmit()
                 }}>
                   Edit
