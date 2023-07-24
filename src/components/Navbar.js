@@ -24,6 +24,11 @@ const Navbar = () => {
             <p className="text-white font-semibold">lists</p>
           </Link>
         </li>
+        <li className="mr-6">
+          <Link href="/account">
+            <p className="text-white font-semibold">account</p>
+          </Link>
+        </li>
         {/* Add more navigation links here */}
       </ul>
     </nav>
