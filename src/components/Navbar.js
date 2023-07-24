@@ -6,14 +6,18 @@ import jwt from "jsonwebtoken";
 
 const Navbar = () => {
   const [token, setToken] = useState("");
+  const [emailShow, setEmailShow] = useState("");
   const router = useRouter();
-
+   
   useEffect(() => {
     const token = localStorage.getItem("token");
     setToken(token);
-    // if(!token){
-    //   router.push("/login");
-    // }
+    if(token){
+      const decoded =   jwt.decode(token)
+    const { email } = decoded || {};
+      setEmailShow(email)
+   
+    }
   }, []);
 
   const logout = () => {
@@ -30,8 +34,8 @@ const Navbar = () => {
     <nav className="bg-green-500 p-4">
       <ul className="flex items-center">
       <li className="mr-6">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.8" stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
 </svg>
 
         </li>
@@ -66,9 +70,15 @@ const Navbar = () => {
             <p className="text-white font-semibold">account</p>
           </Link>
         </li>
-        <li className="mr-6">
+        <li className="mr-10">
           <Link href="" onClick={logout}>
             <p className="text-white font-semibold">Logout</p>
+          </Link>
+        </li>
+        
+        <li className="ml-15 ">
+          <Link href="" >
+            <p className="text-white font-semibold">Account : {emailShow}</p>
           </Link>
         </li>
         </> )   
@@ -76,6 +86,7 @@ const Navbar = () => {
         {/* Add more navigation links here */}
       
       </ul>
+      
     </nav>
   );
 };
