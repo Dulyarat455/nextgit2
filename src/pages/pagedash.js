@@ -105,7 +105,7 @@ useEffect(() => {
 
 
   const getCalculateMonth = async() =>{
-    const res = await fetch("http://localhost:3000/api/calculatemonth", {
+    const res = await fetch("/api/calculatemonth", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -133,7 +133,7 @@ useEffect(() => {
 
 
 
-      const resyear = await fetch("http://localhost:3000/api/calculate", {
+      const resyear = await fetch("/api/calculate", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
