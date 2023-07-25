@@ -53,7 +53,7 @@ const Navbar = () => {
         </li>
         <li className="mr-6">
           <Link href="/register">
-            <p className="text-white font-semibold">register</p>
+            <p className="text-white font-semibold">Register</p>
           </Link>
         </li>
         </>)
@@ -62,12 +62,17 @@ const Navbar = () => {
       <>
         <li className="mr-6">
           <Link href="/lists">
-            <p className="text-white font-semibold">lists</p>
+            <p className="text-white font-semibold">Lists</p>
           </Link>
         </li>
         <li className="mr-6">
           <Link href="/account">
-            <p className="text-white font-semibold">account</p>
+            <p className="text-white font-semibold">Add</p>
+          </Link>
+        </li>
+        <li className="mr-6">
+          <Link href="/pagedash">
+            <p className="text-white font-semibold">Dashboard</p>
           </Link>
         </li>
         <li className="mr-10">
@@ -78,7 +83,7 @@ const Navbar = () => {
         
         <li className="ml-15 ">
           <Link href="" >
-            <p className="text-white font-semibold">Account : {emailShow}</p>
+            <p className="text-black font-semibold">Account : {emailShow}</p>
           </Link>
         </li>
         </> )   
