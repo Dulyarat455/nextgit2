@@ -20,7 +20,7 @@ export default  async  function calculateMonth (req,res)  {
     const decoded =   jwt.decode(token)
     const { account_id } = decoded || {};
 
-    console.log("account_id",account_id)
+    // console.log("account_id",account_id)
 
     
 
@@ -35,29 +35,30 @@ export default  async  function calculateMonth (req,res)  {
       const tzOffset = 7; // Offset for Indochina Time (GMT+7)
       const dateNow = new Date(Date.now() + tzOffset * 3600000).toISOString().split('T')[0];
 
-      console.log("date = ",dateNow)
+      // console.log("date = ",dateNow)
 
       let dayIn 
       let dayOut
       
       const [year, month, day] = dateNow.split("-");
+   
       if(month === '01' || month ==='03' || month === '05' || month === '07' || month === '08' || month === '10'|| month === '12'){
         // 31
-        dayIn = 1
-        dayOut = 31
+        dayIn = '01'
+        dayOut = '31'
       }
       else if(month === '04' || month === '06' || month === '09' || month === '11'){
         //30
-        dayIn = 1
-        dayOut = 30
+        dayIn = '01'
+        dayOut = '30'
       }
       else if(month === '02'){
         //28-29
-        dayIn = 1
-        dayOut = 29
+        dayIn = '01'
+        dayOut = '29'
       }
      
-
+     
 
 
     try{
@@ -124,6 +125,9 @@ export default  async  function calculateMonth (req,res)  {
      ] ).toArray();
 
     let sumbalance = {}
+    console.log("sumexpenses = ",sumexpenses)
+    console.log("sumincome = ",sumincome)
+
 
     
 

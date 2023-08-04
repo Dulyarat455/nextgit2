@@ -23,7 +23,7 @@ export default  async  function calculate (req,res)  {
     const decoded =   jwt.decode(token)
     const { account_id } = decoded || {};
 
-    console.log(account_id)
+    // console.log(account_id)
     
 
 
@@ -36,7 +36,7 @@ export default  async  function calculate (req,res)  {
       const tzOffset = 7; // Offset for Indochina Time (GMT+7)
       const dateNow = new Date(Date.now() + tzOffset * 3600000).toISOString().split('T')[0];
 
-      console.log("date = ",dateNow)
+      // console.log("date = ",dateNow)
 
       let dayIn 
       let dayOut
